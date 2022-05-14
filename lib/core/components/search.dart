@@ -6,29 +6,32 @@ class SearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: kWhite,
-        prefixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            6,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal:16.0),
+      child: TextField(
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: kWhite,
+          prefixIcon: const Icon(Icons.search),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              6,
+            ),
           ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            6,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              6,
+            ),
+            borderSide: const BorderSide(color: Colors.transparent),
           ),
-          borderSide: const BorderSide(color: Colors.transparent),
-        ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10,
-        ),
-        hintText: ' Search',
-        hintStyle: const TextStyle(
-          color: Colors.grey,
-          fontSize: 17,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 10,
+          ),
+          hintText: ' Search',
+          hintStyle: const TextStyle(
+            color: Colors.grey,
+            fontSize: 17,
+          ),
         ),
       ),
     );

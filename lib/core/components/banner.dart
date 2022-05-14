@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:matrix_online_app/core/data/banner_data_list.dart';
+import 'package:matrix_online_app/models/banner_model.dart';
 
 class BannerDecoretion extends StatelessWidget {
   const BannerDecoretion({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: ListView.builder(
-        itemCount: hullas.length,
-        scrollDirection: Axis.horizontal,
+    final controller = PageController();
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 16),
+      height: 160,
+      child: PageView.builder(
+        controller: controller,
+        itemCount: bannerModelList.length,
         itemBuilder: (context, index) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            height: 100,
+            margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Image.network(
-              hullas[index],
-              fit: BoxFit.cover,
+              borderRadius: BorderRadius.circular(20),
+              color: bannerModelList[index].thumbnaiUrl,
             ),
           );
         },

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:matrix_online_app/core/components/openPageAnimation.dart';
 import 'package:matrix_online_app/core/constants/color.dart';
+import 'package:matrix_online_app/screens/favorite/favorite.dart';
+import 'package:matrix_online_app/screens/notification/notification.dart';
 
-AppBar homeAppBar = AppBar(
+AppBar homeAppBar(context) => AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
       title: const Text(
@@ -10,6 +13,12 @@ AppBar homeAppBar = AppBar(
       ),
       actions: [
         InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              OpenPageAnimation(const NotificationPage()),
+            );
+          },
           child: Container(
             decoration: BoxDecoration(
                 color: kWhite, borderRadius: BorderRadius.circular(10)),
@@ -23,6 +32,12 @@ AppBar homeAppBar = AppBar(
           ),
         ),
         InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              OpenPageAnimation(const FavoritePage()),
+            );
+          },
           child: Container(
             decoration: BoxDecoration(
                 color: kWhite, borderRadius: BorderRadius.circular(10)),

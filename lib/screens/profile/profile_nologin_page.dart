@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:matrix_online_app/core/components/openPageAnimation.dart';
 import 'package:matrix_online_app/core/constants/color.dart';
 import 'package:matrix_online_app/core/widgets/buttton.dart';
 import 'package:matrix_online_app/core/widgets/text_formFild.dart';
+import 'package:matrix_online_app/screens/profile/sign_up.dart';
 
 class ProfileNoLogin extends StatelessWidget {
   const ProfileNoLogin({Key? key}) : super(key: key);
@@ -51,7 +53,12 @@ class ProfileNoLogin extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      OpenPageAnimation(const SignUp()),
+                    );
+                  },
                   style: TextButton.styleFrom(
                     primary: kBlue,
                   ),
