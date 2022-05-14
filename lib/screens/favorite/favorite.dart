@@ -27,7 +27,7 @@ class FavoritePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: Colors.white),
+                  borderRadius: BorderRadius.circular(12), color: kWhite),
               // margin: EdgeInsets.all(4),
               padding: EdgeInsets.all(4),
 

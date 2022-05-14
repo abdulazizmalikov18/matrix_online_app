@@ -20,7 +20,7 @@ class TextInput extends StatelessWidget {
           cursorColor: kBlue,
           decoration: InputDecoration(
             hintText: lable,
-            fillColor: Colors.white,
+            fillColor: kWhite,
             filled: true,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -30,7 +30,7 @@ class TextInput extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                  color: Colors.white, style: BorderStyle.solid, width: 3),
+                  color: kWhite, style: BorderStyle.solid, width: 3),
             ),
           ),
         ),

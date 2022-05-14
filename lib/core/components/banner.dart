@@ -11,6 +11,7 @@ class BannerDecoretion extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 16),
       height: 160,
       child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
         controller: controller,
         itemCount: bannerModelList.length,
         itemBuilder: (context, index) {

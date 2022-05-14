@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matrix_online_app/core/constants/color.dart';
 import 'package:matrix_online_app/provider/my_bottom_provider.dart';
 import 'package:matrix_online_app/screens/myHomePage.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        focusColor: kBlue,
       ),
       home: const MyHomePage(),
     );
