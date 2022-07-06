@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matrix_online_app/core/constants/color.dart';
+import 'package:matrix_online_app/provider/favorite_provider.dart';
+import 'package:provider/provider.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -19,39 +20,89 @@ class FavoritePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: kWhite),
-              // margin: EdgeInsets.all(4),
-              padding: EdgeInsets.all(4),
+      body: Container(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          children: const [
+            Expanded(
+              child: _FavoritePageList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-              child: ListTile(
-                leading: Container(
-                  width: 90,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: const DecorationImage(
-                      image: AssetImage(
-                        'assets/rasm1.jpg',
-                      ),
-                      fit: BoxFit.cover,
+class _FavoritePageList extends StatelessWidget {
+  const _FavoritePageList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var itemNameStyle = Theme.of(context).textTheme.headline6;
+    var favoritepage = context.watch<FavoritePageModel>();
+    return ListView.builder(
+      itemCount: favoritepage.item.length,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: kWhite,
+          ),
+          padding: const EdgeInsets.all(4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.all(6),
+                width: 100,
+                height: 70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      favoritepage.item[index].image,
                     ),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                title: Text('Airplane $index'),
-                subtitle: const Text('Very Cool'),
-                trailing: const Icon(Icons.favorite,color: kBlue),
-                onTap: () => print('Tapped on Row $index'),
               ),
-            ),
-          );
-        },
+              const SizedBox(
+                width: 8,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(favoritepage.item[index].name),
+                  const SizedBox(height: 4),
+                  Text(
+                    favoritepage.item[index].subtitle,
+                    style: const TextStyle(color: ktextfild),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    favoritepage.item[index].date,
+                    style: const TextStyle(color: ktextfild),
+                  ),
+                ],
+              ),
+              Expanded(child: Container()),
+              // const Icon(Icons.favorite, color: kBlue),
+              IconButton(
+                onPressed: () {
+                  favoritepage.remove(favoritepage.item[index]);
+                },
+                icon: const Icon(
+                  Icons.favorite,
+                  color: kBlue,
+                ),
+              ),
+              const SizedBox(width: 16),
+            ],
+          ),
+        ),
       ),
     );
   }

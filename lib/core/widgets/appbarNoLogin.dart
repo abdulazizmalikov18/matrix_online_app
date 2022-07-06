@@ -24,10 +24,39 @@ AppBar homeAppBar(context) => AppBar(
                 color: kWhite, borderRadius: BorderRadius.circular(10)),
             margin: const EdgeInsets.symmetric(vertical: 8),
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: const Icon(
-              Icons.notifications,
-              color: kBlue,
-              size: 26,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                const Icon(
+                  Icons.notifications,
+                  color: kBlue,
+                  size: 26,
+                ),
+                Positioned(
+                  top: 9,
+                  left: 15,
+                  child: Container(
+                    width: 9,
+                    height: 9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      color: kWhite,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 9,
+                  left: 16,
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

@@ -7,6 +7,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -14,14 +15,16 @@ class SignUp extends StatelessWidget {
         iconTheme:const IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          padding: EdgeInsets.only(top: size.height * 0.2 ),
           children: const [
-            Text(
-              'Sign up',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                'Sign up',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             SizedBox(

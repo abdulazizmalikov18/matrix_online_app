@@ -9,6 +9,7 @@ class SearchInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal:16.0),
       child: TextField(
+        autocorrect: false,
         decoration: InputDecoration(
           filled: true,
           fillColor: kWhite,

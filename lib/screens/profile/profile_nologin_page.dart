@@ -10,16 +10,20 @@ class ProfileNoLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.only(top: size.height * 0.2),
           children: [
-            const Text(
-              'Sign In',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+            const Center(
+              child: Text(
+                'Sign In',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(
